@@ -3,9 +3,18 @@ name: My First CI
 on: [push]
 
 jobs:
-  say-hello:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print message
-        run: echo "Hello 🎉 CI is working and FREE"
+      - name: Step 1 - Print start
+        run: echo "CI pipeline started"
+
+      - name: Step 2 - Show date
+        run: date
+
+      - name: Step 3 - List files
+        run: ls -la
+
+      - name: Step 4 - Print finish
+        run: echo "CI pipeline finished successfully"
