@@ -1,3 +1,1 @@
-# ci-first
-My first free CI project
-CI second run test
+Testing CI on dev branch
