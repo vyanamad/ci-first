@@ -18,4 +18,6 @@ jobs:
 
       - name: Step 4 - Print finish
         run: echo "CI pipeline finished successfully"
-     echo yaswanth yedava
+      - name: Step 5 - Print custom message
+        run: echo "yaswanth yedava"
+
