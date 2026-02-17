@@ -18,5 +18,4 @@ jobs:
 
       - name: Step 4 - Print finish
         run: echo "CI pipeline finished successfully"
-      - name: Step 5 - Force failure
-        run: exit 1
+     echo yaswanth yedava
