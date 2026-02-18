@@ -27,8 +27,13 @@ jobs:
           path: build.txt
 
   deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy step
-        run: echo "Deploying application"
+  needs: build
+  runs-on: ubuntu-latest
+  steps:
+    - name: Download artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: build-file
+
+    - name: Show deployed file
+      run: cat build.txt
