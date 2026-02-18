@@ -21,7 +21,7 @@ jobs:
         run: echo "Hello from build job" > build.txt
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-file
           path: build.txt
