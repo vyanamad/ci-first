@@ -7,9 +7,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
       - name: Run test
         run: echo "Tests passed"
 
@@ -27,13 +24,13 @@ jobs:
           path: build.txt
 
   deploy:
-  needs: build
-  runs-on: ubuntu-latest
-  steps:
-    - name: Download artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: build-file
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-file
 
-    - name: Show deployed file
-      run: cat build.txt
+      - name: Show deployed file
+        run: cat build.txt
