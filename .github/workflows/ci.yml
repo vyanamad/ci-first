@@ -1,13 +1,47 @@
+ name: Multi Job Pipeline
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install pytest
+        run: pip install pytest
+
+      - name: Run tests
+        run: pytest
+
   build:
     needs: test
     runs-on: ubuntu-latest
 
     steps:
       - name: Create build file
-        run: echo "This is my build output" > build.txt
+        run: echo "Hello from build job" > build.txt
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: build-file
           path: build.txt
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy step
+        run: echo "Deploying application..."
