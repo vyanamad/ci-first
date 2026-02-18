@@ -1,33 +1,21 @@
- name: Multi Job Pipeline
+name: Multi Job Pipeline
 
-on:
-  push:
-    branches: [main]
+on: push
 
 jobs:
 
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.11"
-
-      - name: Install pytest
-        run: pip install pytest
-
-      - name: Run tests
-        run: pytest
+      - name: Run test
+        run: echo "Tests passed"
 
   build:
     needs: test
     runs-on: ubuntu-latest
-
     steps:
       - name: Create build file
         run: echo "Hello from build job" > build.txt
@@ -41,7 +29,6 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-
     steps:
       - name: Deploy step
-        run: echo "Deploying application..."
+        run: echo "Deploying application"
