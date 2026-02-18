@@ -3,7 +3,6 @@ name: Multi Job Pipeline
 on:
   push:
     branches: [ main ]
-
 jobs:
 
   test:
