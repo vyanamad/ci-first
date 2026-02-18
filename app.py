@@ -1,2 +1,4 @@
-print("Hello from Docker container")
+def add(a, b):
+    return a + b
+
 
