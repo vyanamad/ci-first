@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ci-first-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ci-first
+  template:
+    metadata:
+      labels:
+        app: ci-first
+    spec:
+      containers:
+      - name: ci-first
+        image: vyanamad/ci-first:latest
+        ports:
+        - containerPort: 5000
