@@ -1,6 +1,4 @@
-def add(a, b):
-    return a + b
-print("trigger CI")
-print("trigger Ca")
+app.run(host="0.0.0.0", port=5000)
+
 
 
